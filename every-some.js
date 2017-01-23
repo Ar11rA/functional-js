@@ -1,16 +1,16 @@
- (function checkUsersValid(goodUsers) {
-      console.log (function allUsersValid(submittedUsers) {
-       var result = false;
-       result = submittedUsers.every(function isValid(checkUser){
-        var validity = false;
-        validity = goodUsers.some(function isPresent(okUser){
-            return okUser.id === checkUser.id;
+(function checkUsersValid(goodUsers) {
+    console.log(function allUsersValid(submittedUsers) {
+        var finalResult = false;
+        finalResult = submittedUsers.every(function isValid(checkUser) {
+            var validityOfUser = false;
+            validityOfUser = goodUsers.some(function isPresent(okUser) {
+                return okUser.id === checkUser.id;
+            });
+            return validityOfUser;
         });
-        return validity;
-       });
-      return result;
-       
- });
+        return finalResult;
+
+    });
 })();
-//module.exports = checkUsersValid
+module.exports = checkUsersValid
 
