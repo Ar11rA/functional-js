@@ -3,8 +3,8 @@
         var finalResult = false;
         finalResult = submittedUsers.every(function isValid(checkUser) {
             var validityOfUser = false;
-            validityOfUser = goodUsers.some(function isPresent(okUser) {
-                return okUser.id === checkUser.id;
+            validityOfUser = goodUsers.some(function isPresent(validUser) {
+                return validUser.id === checkUser.id;
             });
             return validityOfUser;
         });

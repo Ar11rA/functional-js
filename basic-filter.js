@@ -1,13 +1,12 @@
-function isShortMessage(obj){
+function isShortMessage(obj) {
     return obj.message.length < 50;
 }
-function getShortMessages(messages)
-{
+function getShortMessages(messages) {
     var shortenedMessages = messages.filter(isShortMessage);
-    var arr = shortenedMessages.map(function(element){
+    var resultArray = shortenedMessages.map(function (element) {
         return element.message;
     })
-    return arr;
+    return resultArray;
 
 }
 module.exports = getShortMessages;
