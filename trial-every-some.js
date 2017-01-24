@@ -1,22 +1,14 @@
-function isValid(checkUser){
-  var validityOfUser = false;
-  validityOfUser = goodUsers.some(isPresent);
-  return validityOfUser;
-}
-function isPresent(validUser){
-  return validUser.id === checkUser.id;
-}
-
-function checkUsersValid(goodUsers) {
-    console.log(function allUsersValid(submittedUsers) {
-        var finalResult = false;
-        finalResult = submittedUsers.every(isValid)
-        {
-            validityOfUser = goodUsers.some(isPresent)
-        }
-        return finalResult;
-
+function checkGoodUser(allUsers, submittedUsers){
+    var finalResult =false;
+    finalResult = submittedUsers.every(function(everySubmittedUser){
+        var intermedResult = allUsers.some(function(everyUser){
+            return everyUser.id === everySubmittedUser.id;
+        });
+        return intermedResult;
     });
-};
-module.exports = checkUsersValid
+    return finalResult;
+}
+var goodUser = [{id:1}, {id:2}, {id:3}];
+var subUser = [{id:3}, {id:2}];
 
+console.log(checkGoodUser(goodUser,subUser));
