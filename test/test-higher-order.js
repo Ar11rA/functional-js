@@ -1,15 +1,34 @@
-var assert = require('assert');
-var highOrderFunction = require('../higher-order-functions');
-var count = 0, numberOfTimes = 10;
-function counter() {
-    if(count < numberOfTimes)
-        count++;
-    else
-        count = 0;
+chai = require('chai');
+assert = chai.assert;
+
+var higherOrderFunction = require('../higher-order-functions');
+var count = 0, maxcounts = 10;
+var counter = function () {
+  if (count < maxcounts) {
+    count++;
+  }
+  else {
+    count = 0;
+  }
 }
-describe('Return the output of the function the number of times it is specified', function () {
-    it('Should return munber of times a function is called ', function () {
-        highOrderFunction(counter, numberOfTimes);
-        assert.equal(count,numberOfTimes);
+  describe('when provided valid function', function () {
+    it('should run the passed function', function () {
+      higherOrderFunction(counter, maxcounts);
+      assert.isAbove(count, 0);
     });
-});
+    it('should run the passed function num times', function () {
+      higherOrderFunction(counter, maxcounts);
+      assert.equal(count, maxcounts - 1);
+    });
+  });
+  describe('when provided invalid inputs', function () {
+    it('should return error if passed invalid function', function () {
+      assert.equal(higherOrderFunction('', maxcounts), 'Provide a valid function');
+    });
+    it('should return error if passed invalid number', function () {
+      assert.equal(higherOrderFunction('', 'maxcounts'), 'Provide a valid function');
+    });
+    it('should return error if passed objects', function () {
+      assert.equal(higherOrderFunction({}, {}), 'Provide a valid function');
+    });
+  });
