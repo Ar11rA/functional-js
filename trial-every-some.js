@@ -8,8 +8,8 @@ function checkGoodUser(allUsers, submittedUsers) {
     });
     return finalResult;
 }
-module.exports
-//var goodUser = [{id:1}, {id:2}, {id:3}];
-//var subUser = [{id:3}, {id:2}];
-
-//console.log(checkGoodUser(goodUser,subUser));
+//module.exports
+var goodUser = [{id:1}, {id:2}, {id:3}];
+var subUser = [{id:6}, {id:2}];
+var finalAnswer = checkGoodUser(goodUser,subUser)
+console.log(finalAnswer);
